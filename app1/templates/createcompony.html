@@ -124,10 +124,12 @@
         }
     </style>
     <div class="container">
+        
         <div class="form1"style=" background-color:rgba(0,0,0,0.3);">
             <a href="javascript:history.go(-1);" class="close">+</a>
             <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Compony Creation</h5>
             <form action="" method="post">
+                {% csrf_token %}
 
     <!-- <div class="container">
     <div class="form1">
@@ -136,8 +138,8 @@
         <form action="" method="post"> -->
         
             
-            <div><p> Compony Name</p></div>
-            <input type="text">
+            <div><p name="componyname"> Compony Name</p></div>
+            <input  type="text">
             <div><p>Mailing Name</p></div>
             <input type="text">
             <div><p>Address</Address></p></div>
@@ -243,10 +245,10 @@
                 <option value="Yes">HKD</option>
                 <option value="Yes">₹</option>
                 <option value="Yes">Rp</option>
-                <option value="Yes">Nu</option>
-                <option value="Yes">Nu</option>
-                <option value="Yes">Nu</option>
-                <option value="Yes">Nu</option>
+                <option value="Yes">KSh</option>
+                <option value="Yes">BHD</option>
+                <option value="Yes">KWD</option>
+                <option value="Yes">$</option>
                 <option value="Yes">Nu</option>
                 <option value="Yes">Nu</option>
                 <option value="Yes">Nu</option>
@@ -267,10 +269,10 @@
                 <option value="Yes">Hong Kong Doller</option>
                 <option value="Yes">INR</option>
                 <option value="Yes">Indonasian Rupiah</option>
-                <option value="Yes">Hong Kong Doller</option>
-                <option value="Yes">Hong Kong Doller</option>
-                <option value="Yes">Hong Kong Doller</option>
-                <option value="Yes">Hong Kong Doller</option>
+                <option value="Yes">Kenyan Shiling</option>
+                <option value="Yes">Behraini Dinar</option>
+                <option value="Yes">Kuwaiti Dinar</option>
+                <option value="Yes">Doller</option>
                 <option value="Yes">Hong Kong Doller</option>
                 <option value="Yes">Hong Kong Doller</option>
                 <option value="Yes">Hong Kong Doller</option>
