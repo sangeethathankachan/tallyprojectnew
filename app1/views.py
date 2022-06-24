@@ -4,6 +4,7 @@ from app1.models import crtcompony
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def base(request):
@@ -53,3 +54,45 @@ def createcompony(request):
         
         redirect('createcompony')
     return render(request,'createcompony.html')
+
+def creategroup(request):
+        return render(request, 'creategroup.html')
+
+        
+@csrf_exempt
+def create_group(request):
+    if request.method == 'POST':
+        gname = request.POST['gname']
+        alia = request.POST['alia']
+        if len(gname) <= 0:
+            return JsonResponse({
+                'status': 00
+            })
+
+        if len(alia) <= 0:
+            alia = None
+        else:
+            pass
+
+        under = request.POST['und']
+        gp = request.POST['subled']
+        nett = request.POST['nee']
+        calc = request.POST['cal']
+        meth = request.POST['meth']
+
+        mdl = GroupModel(
+            name=gname,
+            alias=alia,
+            under=under,
+            gp_behaves_like_sub_ledger=gp,
+            nett_debit_credit_bal_reporting=nett,
+            used_for_calculation=calc,
+            method_to_allocate_usd_purchase=meth,
+        )
+        mdl.save()
+        # return redirect('index_view')
+        return JsonResponse({
+            'status': 1
+        })
+
+    

@@ -8,6 +8,7 @@ urlpatterns = [
     path('index',views.index,name='index'),
     path('changecompony',views.changecompony,name='changecompony'),
     path('createcompony',views.createcompony,name='createcompony'),
+    path('creategroup',views.creategroup,name='creategroup')
 
 
 
