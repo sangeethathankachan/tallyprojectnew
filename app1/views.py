@@ -17,6 +17,9 @@ def changecompony(request):
     return render(request, 'changecompony.html')
 
 def createcompony(request):
+    return render(request, 'createcompony.html')
+
+def crtecompony(request):
     if request.method=='POST':
         comname=request.POST['componyname']
         mailingname=request.POST['mailingname']
@@ -34,7 +37,7 @@ def createcompony(request):
         curncysymbl=request.POST['curncysymbl']
         crncyname=request.POST['crncyname']
         # items=request.FILES['file']
-        data=crtcompony(comname=componyname,
+        data=crtcompony(componyname=comname,
                     mailingname=mailingname,
                     address=address,
                     state=state,
@@ -52,8 +55,17 @@ def createcompony(request):
         data.save()
         messages.success(request,"Compony added successfully!")
         
-        redirect('createcompony')
-    return render(request,'createcompony.html')
+        return redirect('/')
+
+
+def changecompony(request):
+    data=crtcompony.objects.all()
+    return render(request,'changecompony.html',{'data':data})
+
+def selectcompony(request):
+    data=crtcompony.objects.all()
+    return render(request,'selectcompony.html',{'data':data})
+    
 
 def creategroup(request):
         return render(request, 'creategroup.html')

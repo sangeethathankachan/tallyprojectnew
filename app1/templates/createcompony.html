@@ -128,7 +128,7 @@
         <div class="form1"style=" background-color:rgba(0,0,0,0.3);">
             <a href="javascript:history.go(-1);" class="close">+</a>
             <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Compony Creation</h5>
-            <form action="" method="post">
+            <form method="post" action="{% url 'crtecompony' %}">
                 {% csrf_token %}
 
     <!-- <div class="container">
@@ -139,13 +139,13 @@
         
             
             <div><p name="componyname"> Compony Name</p></div>
-            <input  type="text">
+            <input  type="text" name="componyname">
             <div><p>Mailing Name</p></div>
-            <input type="text">
+            <input type="text" name="mailingname">
             <div><p>Address</Address></p></div>
-            <input type="text">
+            <input type="text" name="address">
             <div><p>State</p></div>
-            <select name="Not Applicable" id="primary">
+            <select  id="primary" name="state">
                 <option value="primary">Not Applicable</option>
                 <option value="primary">Andaman & Nicobar Islands</option>
                 <option value="primary">Andhra Pradesh</option>
@@ -183,7 +183,7 @@
 
             </select>
             <div><p>Country</p></div>
-            <select name="country" id="country">
+            <select  id="country" name="country">
                 <option value="Countryt">Not Applicable</option>
                 <option value="Country">Bangladesh</option>
                 <option value="Country">Bhutan</option>
@@ -219,24 +219,24 @@
                 
             </select>
             <div><p>Postal Code</p></div>
-            <input type="text">
+            <input type="text" name="pincode">
             <div><p>Telephone</p></div>
-            <input type="text">
+            <input type="text" name="telphone">
             <div><p>Mobile</p></div>
-            <input type="text">
+            <input type="text" name="mobile">
             <div><p>Fax</p></div>
-            <input type="text">
+            <input type="text" name="fax">
             <div><p>E-Mail</p></div>
-            <input type="text">
+            <input type="text" name="email">
             <div><p>Website</p></div>
-            <input type="text">
+            <input type="text" name="website">
             <div><p>Financial year beginning from</p></div>
-            <input type="date">
+            <input type="date" name="fyearbgn">
             <div><p>Books beginning from</p></div>
-            <input type="date">
+            <input type="date" name="booksbgn">
             <hr>
             <div><p>Base Currency Symbol</p></div>
-            <select name="sub-ledger" id="sub-ledger">
+            <select id="sub-ledger" name="curncysymbl">
                 <option value="No">TK</option> 
                 <option value="Yes">Nu</option>
                 <option value="Yes">P</option>
@@ -260,7 +260,7 @@
                  
             </select>
             <div><p>Formal name</p></div>
-            <select name="sub-ledger" id="sub-ledger">
+            <select name="crncyname" id="sub-ledger" >
                 <option value="No">Bangladeshi taka</option> 
                 <option value="Yes">Buhtanese Ngultrum</option>
                 <option value="Yes">Botswana Pula</option>
@@ -283,7 +283,7 @@
                
             <br>
             
-<button><h5>Create</h5></button>
+                <button type="submit">CREATE</button>
         </form>
     </div>
 </div>
