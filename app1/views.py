@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app1.models import crtcompony
+from app1.models import crtcompony,GroupModel
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -53,7 +53,7 @@ def crtecompony(request):
                     curncysymbl=curncysymbl,
                     crncyname=crncyname)
         data.save()
-        messages.success(request,"Compony added successfully!")
+        messages.success(request,"Group added successfully!")
         
         return redirect('/')
 
@@ -67,8 +67,8 @@ def selectcompony(request):
     return render(request,'selectcompony.html',{'data':data})
     
 
-def creategroup(request):
-        return render(request, 'creategroup.html')
+def group(request):
+        return render(request, 'group.html')
 
         
 @csrf_exempt
@@ -76,16 +76,6 @@ def create_group(request):
     if request.method == 'POST':
         gname = request.POST['gname']
         alia = request.POST['alia']
-        if len(gname) <= 0:
-            return JsonResponse({
-                'status': 00
-            })
-
-        if len(alia) <= 0:
-            alia = None
-        else:
-            pass
-
         under = request.POST['und']
         gp = request.POST['subled']
         nett = request.POST['nee']
@@ -103,8 +93,12 @@ def create_group(request):
         )
         mdl.save()
         # return redirect('index_view')
-        return JsonResponse({
-            'status': 1
-        })
+        messages.success(request,"Compony added successfully!")
+        
+        return redirect('/')
+
+def groups(request):
+    mdl=GroupModel.objects.all()
+    return render(request,'groups.html',{'mdl':mdl})
 
     

@@ -8,8 +8,10 @@ urlpatterns = [
     path('index',views.index,name='index'),
     path('changecompony',views.changecompony,name='changecompony'),
     path('createcompony',views.createcompony,name='createcompony'),
-    path('creategroup',views.creategroup,name='creategroup'),
+    path('group',views.group,name='group'),
     path('crtcompony',views.crtecompony,name='crtecompony'),
-    path('selectcompony',views.selectcompony,name='selectcompony')
+    path('selectcompony',views.selectcompony,name='selectcompony'),
+    path('create_group',views.create_group,name='create_group'),
+    path('groups',views.groups,name='groups')
 
 ]

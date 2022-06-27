@@ -42,48 +42,21 @@
 <div class="form1"style=" background-color:rgba(0,0,0,0.3);">
     <a href="javascript:history.go(-1);" class="close">+</a>
     <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Group creations</h5>
-    <form action="{% url 'create_group' %}" method="post">
+    <form action="{% url 'create_group' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
     
         
         <div><p>Name</p></div>
-        <input type="text" name="gname" class="form-control">
+        <input type="text" name="gname" class="form-control" value="{{mdl.name}}">
         <div><p>(Alias)</p></div>
-        <input type="text" name= "alia" class="form-control">
+        <input type="text" name= "alia" class="form-control" value="{{mdl.alias}}">
         <div><p>Under</p></div>
         <select name="und" id="under" class="form-control" >
-            <option value="Bank Account">Bank Accouts</option>
-            <option value="Bank OCC A/c">Bank OCC A/c</option>
-            <option value="Bank OD A/c">Bank OD A/c</option>
-            <option value="Bank_Account">Branch Divisions</option>
-            <option value="Bank_Account">Capital Amount</option>
-            <option value="Bank_Account">Cash in Hand</option>
-            <option value="Bank_Account">Current Assets</option>
-            <option value="Bank_Account">Current Liabilities</option>
-            <option value="Bank_Account">Deposits (Asset)</option>
-            <option value="Bank_Account">Direct Expenses</option>
-            <option value="Bank_Account">Direct Incomes</option>
-            <option value="Bank_Account">Duties and Taxes</option>
-            <option value="Bank_Account">Expenses(Direct)</option>
-            <option value="Bank_Account">Expenses(Indirect)</option>
-            <option value="Bank_Account">Fixed Assets</option>
-            <option value="Bank_Account">Income (Direct)</option>
-            <option value="Bank_Account">Income (Indirect)</option>
-            <option value="Bank_Account">Investments</option>
-            <option value="Bank_Account">Loans & Advances (Asset)</option>
-            <option value="Bank_Account">Loans (Liability)</option>
-            <option value="Bank_Account">Misc. Expenses (Asset)</option>
-            <option value="Bank_Account">provisions</option>
-            <option value="Bank_Account">Purchase Accounts</option>
-            <option value="Bank_Account">Reserves & Surplus</option>
-            <option value="Bank_Account">Retained Earnings</option>
-            <option value="Bank_Account">Sales Accounts</option>
-            <option value="Bank_Account">Secured Loans</option>
-            <option value="Bank_Account">Stock-in-Hand</option>
-            <option value="Bank_Account">Sundry Creditors</option>
-            <option value="Bank_Account">Sundry Debtors</option>
-            <option value="Bank_Account">Suspence A/c</option>
-            <option value="Bank_Account">Unsecured Loans</option>   
+            {% for p in mdl}
+            {% if p.id == mdl.}
+                <option value="{{}}"></option>
+            
+            
         </select>
         <hr>
         <div><p>Group behaves like sub-ledger</p></div>
