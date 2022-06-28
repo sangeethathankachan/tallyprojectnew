@@ -41,7 +41,7 @@
 <div class="container">
 <div class="form1"style=" background-color:rgba(0,0,0,0.3);">
     <a href="javascript:history.go(-1);" class="close">+</a>
-    <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Group creations</h5>
+    <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">Group Alteration</h5>
     <form action="{% url 'create_group' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
     
@@ -53,39 +53,45 @@
         <div><p>Under</p></div>
         <select name="und" id="under" class="form-control" >
             {% for p in mdl}
-            {% if p.id == mdl.}
-                <option value="{{}}"></option>
+            
+                <option value="{{p.id}}">{{p.name}}</option>
             
             
         </select>
         <hr>
         <div><p>Group behaves like sub-ledger</p></div>
         <select name="subled" id="sub-ledger" class="form-control">
-            <option value="No">No</option> 
-            <option value="Yes">Yes</option>
+            <option value="{{p.id}}">{{p.gp_behaves_like_sub_ledger}}</option> 
+            <option value="No">Yes</option>  
+            <option value="No">No</option>  
+            
              
         </select>
         <div><p>Net Debit/Credit Balances for reporting</p></div>
         <select name="nee" id="sub-ledger" class="form-control">
-            <option value="No">No</option> 
-            <option value="Yes">Yes</option>
+            <option value="{{p.id}}">{{p.nett_debit_credit_bal_reporting}}</option> 
+            <option value="No">Yes</option>  
+            <option value="No">No</option>  
           
         </select>
         <div><p>Used for Calculations(for example :tax,discounts)</p></div>
         <select name="cal" id="sub-ledger" class="form-control">
-            <option value="No">No</option> 
-            <option value="Yes">Yes</option>
+            <option value="{{p.id}}">{{p.used_for_calculation}}</option> 
+            <option value="No">Yes</option>  
+            <option value="No">No</option>  
+            
            
         </select>
         <p>(For sale invoice entries)</p>
         <div><p>Method to Allocate when used in purchase invoice</p></div>
         <select name="meth" id="sub-ledger" class="form-control">
+            <option value="{{p.id}}">{{p.method_to_allocate_usd_purchase}}</option> 
             <option value="Yes">Not Applicable</option>
             <option value="No">Appropriate by Qty</option>
             <option value="No">Appropriate by value</option>    
         </select>
         <br>
-<button>CREATE</button>
+<button>UPDATE</button>
     </form>
 </div>
 </div>

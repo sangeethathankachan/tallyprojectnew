@@ -12,6 +12,7 @@ urlpatterns = [
     path('crtcompony',views.crtecompony,name='crtecompony'),
     path('selectcompony',views.selectcompony,name='selectcompony'),
     path('create_group',views.create_group,name='create_group'),
-    path('groups',views.groups,name='groups')
+    path('groups',views.groups,name='groups'),
+    path('editgroup',views.editgroup,name='editgroup')
 
 ]

@@ -34,3 +34,23 @@ class GroupModel(models.Model):
         return self.name
 
 #class group(models.Model):
+
+class LedgerModel(models.Model):
+    cid = models.ForeignKey(
+        CompanyModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_name = models.CharField(max_length=225)
+    ledger_alias = models.CharField(max_length=225)
+
+    group = models.ForeignKey(
+        GroupModel, on_delete=models.CASCADE, null=True, blank=True)
+    ledger_opening_bal = models.CharField(max_length=225)
+    ledger_type = models.CharField(max_length=225)
+    type_of_duty = models.CharField(max_length=225)
+    percent_of_calculation = models.CharField(max_length=225)
+    maintain_bal_bill = models.CharField(max_length=225)
+    credit_days_during_voucher_entry = models.CharField(max_length=225)
+    default_cr_peroid = models.CharField(max_length=225)
+    provide_banking_details = models.BooleanField()
+
+    def __str__(self):
+        return self.ledger_name
