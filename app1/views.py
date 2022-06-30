@@ -239,3 +239,49 @@ def create_ledger(request):
         
     }
     return render(request, 'create_ledger.html', context)
+
+def currency(request):
+    return render(request,'currency.html')
+
+def currencycreate(request):
+    return render(request,'currencycreate.html')
+
+
+def create_currency(request):
+    if request.method == 'POST':
+        symbol = request.POST['symbol']
+        fname = request.POST['fname']
+        if len(symbol) <= 0:
+            print('XX')
+            return JsonResponse({
+                'status': 00
+            })
+        elif len(fname) <= 0:
+            print('XXX')
+            return JsonResponse({
+                'status': 00
+            })
+        else:
+            pass
+
+        iso_code = request.POST['iso_code']
+        n_deci_placs = request.POST['n_deci_placs']
+        smt_millon = request.POST['smt_millon']
+        symbol_to_amount = request.POST['symbol_to_amount']
+        space_bt_sy = request.POST['space_bt_sy']
+        amount_after_decimal = request.POST['amount_after_decimal']
+        amount_in_words = request.POST['amount_in_words']
+
+        mdl_obj = CreateCurrency(
+            symbol=symbol,
+            formal_name=fname,
+            ISO_code=iso_code,
+            decimal_places=n_deci_placs,
+            show_in_millions=smt_millon,
+            suffix_to_amount=symbol_to_amount,
+            space_symbol_amount=space_bt_sy,
+            word_after_decimal=amount_after_decimal,
+            decimal_no_in_words=amount_in_words,
+        )
+        mdl_obj.save()
+        return redirect('load_create_currency')

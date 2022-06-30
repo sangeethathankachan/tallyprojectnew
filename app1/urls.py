@@ -13,6 +13,8 @@ urlpatterns = [
     path('selectcompony',views.selectcompony,name='selectcompony'),
     path('create_group',views.create_group,name='create_group'),
     path('groups',views.groups,name='groups'),
-    path('editgroup',views.editgroup,name='editgroup')
+    path('editgroup',views.editgroup,name='editgroup'),
+    path('currency',views.currency,name='currency'),
+    path('currencycreate',views.currencycreate,name='currencycreate'),
 
 ]
