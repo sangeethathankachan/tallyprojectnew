@@ -285,3 +285,10 @@ def create_currency(request):
         )
         mdl_obj.save()
         return redirect('load_create_currency')
+
+
+def voucher(request):
+    return render(request,'voucher.html')
+
+def createvoucher(request):
+    return render(request,'createvoucher.html')

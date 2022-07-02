@@ -16,5 +16,7 @@ urlpatterns = [
     path('editgroup',views.editgroup,name='editgroup'),
     path('currency',views.currency,name='currency'),
     path('currencycreate',views.currencycreate,name='currencycreate'),
+    path('voucher',views.voucher,name='voucher'),
+    path('createvoucher',views.createvoucher,name='createvoucher'),
 
 ]
