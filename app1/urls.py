@@ -18,5 +18,7 @@ urlpatterns = [
     path('currencycreate',views.currencycreate,name='currencycreate'),
     path('voucher',views.voucher,name='voucher'),
     path('createvoucher',views.createvoucher,name='createvoucher'),
+    path('save_ledger',views.save_ledger,name='save_ledger'),
+    path('create_voucher',views.create_voucher,name='create_voucher'),
 
 ]
