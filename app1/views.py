@@ -486,3 +486,25 @@ def create_voucher(request):
         return redirect('createvoucher')
 
     return render(request, 'createvoucher')
+
+
+def currency_alter(request,pk):
+    cur=CreateCurrency.objects.get(id=pk)
+    return render(request,'altercurrency.html',{'i':cur})
+
+def update_currency(request,pk):
+    if request.method=='POST':
+        cur =CreateCurrency.objects.get(id=pk)
+        cur.symbol = request.POST.get('symbol')
+        cur.formal_name = request.POST.get('fname')
+        cur.ISO_code = request.POST.get('iso_code')
+        cur.decimal_places = request.POST.get('n_deci_placs')
+        cur.show_in_millions = request.POST.get('smt_millon')
+        cur.suffix_to_amount = request.POST.get('symbol_to_amount')
+        cur.space_symbol_amount = request.POST.get('space_bt_sy')
+        cur.word_after_decimal = request.POST.get('amount_after_decimal')
+        cur.decimal_no_in_words = request.POST.get('amount_in_words')
+        
+        cur.save()
+        return redirect('currency')
+    return render(request, 'altercurrency.html',)

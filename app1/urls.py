@@ -20,5 +20,7 @@ urlpatterns = [
     path('createvoucher',views.createvoucher,name='createvoucher'),
     path('save_ledger',views.save_ledger,name='save_ledger'),
     path('create_voucher',views.create_voucher,name='create_voucher'),
+    path('currency_alter',views.currency_alter,name='currency_alter'),
+    path('update_currency/<int:pk>',views.update_currency,name='update_currency'),
 
 ]
