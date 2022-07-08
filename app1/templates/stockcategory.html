@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% load static %}
+    <style>
+        .container{
+            
+            display: flex;
+            height:20vh;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    .form1{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        
+    }
+    form{
+        padding:30px;
+        width: 350px;
+        height: 270px;
+    }
+    .close {
+        position: absolute;
+        top: 3px;
+        right: 8px;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+        transform: rotate(45deg);
+        cursor: pointer;
+        text-decoration: none;
+        
+    }
+    button{
+        background-color:rgb(103, 175, 220) ;
+        color:white;
+        padding:10px 20px;
+    }
+</style>
+
+    
+<div class="container">
+<div class="form1"style=" background-color:rgba(0,0,0,0.3);">
+    <a href="javascript:history.go(-1);" class="close">+</a>
+    <h5 style="background-color:rgb(103, 175, 220) ; color:white; text-align: center; padding: 5px 0; width:100%;">List of Stock Categories</h5>
+    <form action="" method="post">
+    
+        
+        <a href="currencycreate"><h8 style="text-align:left;">Create</h8></a><br>
+        
+        <a href="index"><h8>Back</h8></a><br>
+        
+        <hr>
+
+        {% for p in data %}
+            <a href="branch"><h8 style="text-align:left;">{{p.componyname}}</h8></a><br>
+        {% endfor %}
+        
+</div>
+{% endblock %}

@@ -10,6 +10,21 @@ from django.views.decorators.csrf import csrf_exempt
 def base(request):
     return render(request, 'base.html')
 
+def godown(request):
+    return render(request, 'godown.html')
+
+def stockgroup(request):
+    return render(request, 'stockgroup.html')
+
+def stockcategory(request):
+    return render(request, 'stockcategory.html')
+
+def stockitem(request):
+    return render(request, 'stockitem.html')
+
+def unit(request):
+    return render(request, 'unit.html')
+
 def index(request):
     return render(request, 'home.html')
 
