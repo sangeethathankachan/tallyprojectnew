@@ -19,6 +19,9 @@ def stockgroup(request):
 def stockcategory(request):
     return render(request, 'stockcategory.html')
 
+def update_voucher(request):
+    return render(request, 'update_voucher.html')
+
 def stockitem(request):
     return render(request, 'stockitem.html')
 
