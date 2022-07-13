@@ -27,5 +27,8 @@ urlpatterns = [
     path('stockgroup',views.stockgroup,name='stockgroup'),
     path('stockitem',views.stockitem,name='stockitem'),
     path('unit',views.unit,name='unit'),
+    path('update_voucher',views.update_voucher,name='update_voucher'),
+    path('stockgrpscreate',views.stockgrpscreate,name='stockgrpscreate'),
+    path('stockgrpcreate',views.stockgrpcreate,name='stockgrpcreate'),
 
 ]

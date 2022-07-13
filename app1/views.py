@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app1.models import crtcompony,GroupModel
+from app1.models import crtcompony,GroupModel,stockgroupcreate
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -526,3 +526,23 @@ def update_currency(request,pk):
         cur.save()
         return redirect('currency')
     return render(request, 'altercurrency.html',)
+
+def stockgrpcreate(request):
+    return render(request, 'stockgrpcreate.html')
+
+def stockgrpscreate(request):
+    if request.method=='POST':
+        name=request.POST['name']
+        alias=request.POST['alias']
+        under=request.POST['under']
+        Should_quantties_of_items_be_added=request.POST['itemsadded']
+        Set_or_Alter_GST_Details=request.POST['gst']
+        data=stockgroupcreate(name=name,
+                    alias=alias,
+                    under=under,
+                    itemsadded=Should_quantties_of_items_be_added,
+                    gst=Set_or_Alter_GST_Details)
+        data.save()
+        messages.success(request,"Group added successfully!")
+        
+        return redirect('/')

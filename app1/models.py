@@ -132,3 +132,10 @@ class VoucherModels(models.Model):
     make_optional =  models.CharField(max_length=225)
     provide_naration =  models.CharField(max_length=225)
     print_voucher = models.CharField(max_length=225)
+
+class stockgroupcreate(models.Model):
+    name = models.CharField(max_length=225)
+    alias = models.CharField(max_length=225)
+    under = models.CharField(max_length=225)
+    Should_quantties_of_items_be_added = models.CharField(max_length=225)
+    Set_or_Alter_GST_Details = models.CharField(max_length=225)
