@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app1.models import crtcompony,GroupModel,stockgroupcreate
+from app1.models import crtcompony,GroupModel,create_stockgrp,create_stockcate,create_stockitem,units
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -546,3 +546,91 @@ def stockgrpscreate(request):
         messages.success(request,"Group added successfully!")
         
         return redirect('/')
+
+
+def stock_grp(request):
+    return render(request, 'stock_grp.html')
+
+
+
+def stock_cat(request):
+    return render(request, 'stock_cat.html')
+
+
+
+def godwn(request):
+    return render(request, 'gdwn.html')
+
+def godwn_alter(request):
+    return render(request, 'gdwn_alter.html')
+
+
+def stock_items(request):
+    sp=create_stockgrp.objects.all()
+    std=create_stockcate.objects.all()
+    pk=units.objects.all()
+    return render(request,'stock_items.html',{'std':std,'pk':pk,'sp':sp})  
+
+
+
+def add_stockitem(request):
+     if request.method=='POST':
+        lev=create_stockitem()
+        lev.name=request.POST.get('name')
+        lev.alias=request.POST.get('alias')
+        lev.under=request.POST.get('under')
+        lev.category=request.POST.get('cat')
+        lev.units=request.POST.get('units')
+        lev.rate_of_duty=request.POST.get('rate')
+        lev.save()
+        return redirect('stock_items')
+
+def stockgrp(request):
+    std=create_stockgrp.objects.all()
+    return render(request,'stockgrpcreate.html',{'std':std}) 
+
+
+def stockcate(request):
+    return render(request,'stock_cat.html',)  
+
+
+def add_stockcate(request):
+    if request.method=='POST':
+        name=request.POST['name']  
+        alias=request.POST['alias']
+        under=request.POST['under']
+        std=create_stockcate(name=name,
+                        alias=alias,
+                        under=under,
+                        )  
+
+        std.save()     
+        return redirect('stockcate')  
+        # return render(request,'stockcategory.html')         
+
+def add_stockgrp(request):
+    if request.method=='POST':
+        lev=create_stockgrp()
+        lev.name=request.POST.get('name')
+        lev.alias=request.POST.get('alias')
+        lev.under=request.POST.get('under')
+        lev.quntities_added=request.POST.get('qty')
+        lev.save()
+        return redirect('stockgrp') 
+
+def stunits(request):
+    ps=units()
+    return render(request,'stunit.html',{'ps':ps}) 
+
+def add_units(request):
+    if request.method=='POST':
+        std=units()
+        std.type=request.POST.get('type')
+        std.symbol=request.POST.get('symbol')  
+        std.formal_name=request.POST.get('formal')
+        std.number_of_decimal_places=request.POST.get('decimal') 
+        std.first_unit=request.POST.get('ft')
+        std.conversion=request.POST.get('con')
+        std.second_unit=request.POST.get('sec')  
+        std.save()
+        return redirect('stunits')

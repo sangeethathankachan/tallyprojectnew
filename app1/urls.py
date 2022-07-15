@@ -31,4 +31,21 @@ urlpatterns = [
     path('stockgrpscreate',views.stockgrpscreate,name='stockgrpscreate'),
     path('stockgrpcreate',views.stockgrpcreate,name='stockgrpcreate'),
 
+    path('godwn',views.godwn,name='godwn'),
+    path('godwn_alter',views.godwn_alter,name='godwn_alter'),
+    path('stock_grp',views.stock_grp,name='stock_grp'),
+    path('stock_cat',views.stock_cat,name='stock_cat'),
+    path('stock_items',views.stock_items,name='stock_items'),
+
+
+    path('stockgrp',views.stockgrp,name='stockgrp'),
+    path('stockcate',views.stockcate,name='stockcate'),
+    path('add_stockgrp',views.add_stockgrp,name='add_stockgrp'),
+    path('add_stockcate',views.add_stockcate,name='add_stockcate'),
+    path('stock_items',views.stock_items,name='stock_items'),
+    path('add_stockitem',views.add_stockitem,name='add_stockitem'),
+
+    path('stunits',views.stunits,name='stunits'),
+    path('add_units',views.add_units,name='add_units'),
+
 ]

@@ -133,9 +133,32 @@ class VoucherModels(models.Model):
     provide_naration =  models.CharField(max_length=225)
     print_voucher = models.CharField(max_length=225)
 
-class stockgroupcreate(models.Model):
-    name = models.CharField(max_length=225)
-    alias = models.CharField(max_length=225)
-    under = models.CharField(max_length=225)
-    Should_quantties_of_items_be_added = models.CharField(max_length=225)
-    Set_or_Alter_GST_Details = models.CharField(max_length=225)
+
+
+class create_stockcate(models.Model):
+    name=models.CharField(max_length=225)  
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
+
+class create_stockgrp(models.Model):
+    name=models.CharField(max_length=225)
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
+    quntities_added=models.CharField(max_length=225)
+
+class create_stockitem(models.Model):
+    name=models.CharField(max_length=225)
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
+    category=models.CharField(max_length=225)
+    units=models.CharField(max_length=225)
+    rate_of_duty=models.CharField(max_length=225)
+
+class units(models.Model):
+    type= models.CharField(max_length=225)
+    symbol=models.CharField(max_length=225)
+    formal_name=models.CharField(max_length=225)
+    number_of_decimal_places=models.CharField(max_length=225)
+    first_unit=models.CharField(max_length=225)
+    conversion=models.CharField(max_length=225)
+    second_unit=models.CharField(max_length=225)
