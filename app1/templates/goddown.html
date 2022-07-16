@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block body %}
+     {% load static %}
+
+
+     
+     <style>
+        .close {
+            position: absolute;
+            top: 3px;
+            right: 8px;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            transform: rotate(45deg);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .flexy{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    </style>
+    <div class="">
+    <div class="row container-fluid p-0 " >
+        <div class="col-sm-3 m-0 p-0"></div>
+        <div class="col-sm-6 m-0 p-0" style=" background-color:rgba(0,0,0,0.2);">
+            <a href="javascript:history.go(-1);" class="close">+</a>
+        <h6  class="bg-info text-light p-2">Godown Creation</h6>
+
+        
+        
+    
+    <form id="" action="" method="post" class="p-5">
+            {% csrf_token %}
+       
+                        <div class="row container-fluid  p-2 m-0">
+                            <div class="col-sm-4 m-0 p-0"> <label for="gname">Name :</label></div>
+                            <div class="col-sm-8 m-0 p-0"><input class="custom-select-md form-control" type="text" name="name"
+                                style="width: 40%;margin-left: 20%;" id="alias" 
+                                placeholder="" autocomplete="off"/></div> 
+
+                                
+                        </div>
+
+
+                    
+    
+                        <div class="row container-fluid  p-2 m-0">
+                            <div class="col-sm-4 m-0 p-0"> <label for="alias">(Alias) :</label></div>
+                            <div class="col-sm-8 m-0 p-0"><input class="custom-select-md form-control" type="text" name="alias"
+                                style="width: 40%;margin-left: 20%;" id="alias" 
+                                placeholder="" autocomplete="off"></div> 
+                        </div>
+    
+                        <div class="row container-fluid  p-2 m-0">
+                            <div class="col-sm-4 m-0 p-0"> <label for="under">Under :</label></div>
+                            <div class="col-sm-8 m-0 p-0">
+                                <input class="custom-select-md form-control" type="text" name="under"
+                                       style="width: 40%;margin-left: 20%;" id="primary-text" onfocus="showList()"
+                                       placeholder="Primary" autocomplete="off">
+    
+                            </div> 
+                        </div>
+    
+                       
+    
+    
+                        <div class="flexy"><input type="submit"  value="create" class="btn btn-info w-100 mt-5"></div>
+
+                     
+    
+                      
+        
+    </form>
+    
+    </div>
+    </div>
+    </div>
+    
+    
+
+    
+    <div
+      class="page-content" id="list-div"
+      style="visibility: hidden; margin-left: 75%;margin-top:-25% ; width: 30%" >
+      <div class="card radius-15">
+        <div class="card-body">
+          <div class="card-title">
+            <center><h5>List of Groups</h5></center>
+            <hr />
+           <a href=""> <button
+              type="submit"
+              style="margin-left: 80%; width: 25%"
+              class="custom-select-md form-control" >create</button></a>
+            <div></div>
+            {% for l in std %}
+            <div onclick="hideList('{{l.name}}')" >{{l.name}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <script>
+      
+    
+      function showList() {
+        document.getElementById("list-div").style.visibility = "visible";
+      }
+      function hideList(valueDIv) {
+        document.getElementById("primary-text").value=valueDIv;
+        document.getElementById("list-div").style.visibility = "hidden";
+      }
+      // function color(value){
+      //   document.body.style.backgroundColor="rgba(255, 0, 0, 0.4)";
+    
+      // }
+      
+    </script>
+     
+
+{% endblock %}

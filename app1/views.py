@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app1.models import crtcompony,GroupModel,create_stockgrp,create_stockcate,create_stockitem,units
+from app1.models import crtcompony,GroupModel,create_stockgrp,create_stockcate,create_stockitem,units,create_goddown
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -634,3 +634,17 @@ def add_units(request):
         std.second_unit=request.POST.get('sec')  
         std.save()
         return redirect('stunits')
+
+def goddown(request):
+    std=create_goddown.objects.all()
+    return render(request,'goddown.html',{'std':std}) 
+
+def add_goddown(request):
+    if request.method =='POST':
+        lev=create_goddown()
+        lev.name=request.POST.get('name')
+        lev.alias=request.POST.get('alias')
+        lev.under=request.POST.get('under')
+        lev.save()
+        return redirect('goddown')
+    return render(request,'goddown.html')   

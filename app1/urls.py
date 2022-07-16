@@ -48,4 +48,7 @@ urlpatterns = [
     path('stunits',views.stunits,name='stunits'),
     path('add_units',views.add_units,name='add_units'),
 
+    path('goddown',views.goddown,name='goddown'),
+    path('add_goddown',views.add_goddown,name='add_goddown'),
+
 ]

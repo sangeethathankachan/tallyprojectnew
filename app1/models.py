@@ -162,3 +162,8 @@ class units(models.Model):
     first_unit=models.CharField(max_length=225)
     conversion=models.CharField(max_length=225)
     second_unit=models.CharField(max_length=225)
+
+class create_goddown(models.Model):
+    name=models.CharField(max_length=225)
+    alias=models.CharField(max_length=225)
+    under=models.CharField(max_length=225)
