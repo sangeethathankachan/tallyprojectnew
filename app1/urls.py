@@ -51,4 +51,12 @@ urlpatterns = [
     path('goddown',views.goddown,name='goddown'),
     path('add_goddown',views.add_goddown,name='add_goddown'),
 
+
+    path('currency',views.currency,name='currency'),
+    path('currency_alter',views.currency_alter,name='currency_alter'),
+    path('load_create_currency',views.load_create_currency,name='load_create_currency'),
+    path('create_currency',views.create_currency,name='create_currency'),
+    path('save_currency_data',views.save_currency_data,name='save_currency_data'),
+    path('update_currency',views.update_currency,name='update_currency'),
+
 ]

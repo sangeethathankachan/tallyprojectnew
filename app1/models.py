@@ -115,7 +115,22 @@ class CreateCurrency(models.Model):
     space_symbol_amount = models.CharField(max_length=225)
     word_after_decimal = models.CharField(max_length=225)
     decimal_no_in_words = models.CharField(max_length=225)
-    flag= models.CharField(max_length=225,default=0)
+
+    def __str__(self):
+        return self.name
+
+class CurrencyAlter(models.Model):
+    cname= models.ForeignKey( CreateCurrency,on_delete=models.CASCADE,default=1)
+    slno = models.CharField(max_length=225)
+    currencys = models.CharField(max_length=225)
+    stdrate =models.CharField(max_length=225)
+    lastvrate =models.CharField(max_length=225)
+    specirate =models.CharField(max_length=225)
+    lastvrate2 =models.CharField(max_length=225)
+    specirate2 =models.CharField(max_length=225)
+    
+    def __str__(self):
+        return self.name
 
 class VoucherModels(models.Model):
     voucher_name = models.CharField(max_length=225)
