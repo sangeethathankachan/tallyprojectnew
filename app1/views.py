@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app1.models import CurrencyAlter,CreateCurrency,crtcompony,GroupModel,create_stockgrp,create_stockcate,create_stockitem,units,create_goddown
+from app1.models import CurrencyAlter,CreateCurrency,crtcompony,GroupModel,create_stockgrp,create_stockcate,create_stockitem,units,Godowns
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -708,16 +708,26 @@ def add_units(request):
         std.save()
         return redirect('stunits')
 
-def goddown(request):
-    std=create_goddown.objects.all()
-    return render(request,'goddown.html',{'std':std}) 
+def godown(request):
+    return render(request,'godwn.html',)  
 
-def add_goddown(request):
-    if request.method =='POST':
-        lev=create_goddown()
-        lev.name=request.POST.get('name')
-        lev.alias=request.POST.get('alias')
-        lev.under=request.POST.get('under')
-        lev.save()
-        return redirect('goddown')
-    return render(request,'goddown.html')   
+def godwn(request):
+    god=Godowns.objects.all()
+    today_date=datetime.datetime.now()
+    return render(request, 'godwn.html',{'god':god,'todaydate':today_date})
+        
+
+def godwn_alter(request,id):
+    god=Godowns.objects.get(id=id)
+    godi=Godowns.objects.filter(~Q(id=id))
+    return render(request, 'godwn_alter.html',{'god':god,'godi':godi})
+
+
+def savegod(request,id):
+    if request.method=="POST":
+        god=Godowns.objects.get(id=id)
+        god.name=request.POST.get('name')
+        god.godown=request.POST.get('godown')
+        god.alias=request.POST.get('alias')
+        god.save()
+        return redirect('godwn')  
